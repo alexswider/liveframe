@@ -1,0 +1,13 @@
+dropUp -s download /photos /home/pi/livephotos
+
+. ~/livephotos/livephotos.config
+
+echo "+++++++++++++++"
+echo "$orientation"
+
+sudo fbi -a -T 1 -t 5 -d /dev/fb0 -noverbose ~/livephotos/photos/$orientation/*
+
+#sudo fim -T 1 -d /dev/fb0  /home/pi/livephotos/photos/portrait
+
+# x11vnc -display :0 -usepw -listen 192.168.2.108 -allow 192.168.2.200
+
