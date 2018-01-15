@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Your Title</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/main.css" > -->
+    <!-- <script src="js/main.js" ></script> -->
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+    
+</head>
+
+<body>
+   
+    <!-- {{> head}}
+    <div>
+        <h1>{{title}}</h1>
+        <p>{{message}}</p>
+    </div>
+    {{> foot}}
+-->
+    <!-- <div data-live-photo data-photo-src="photos/IMG_2037.JPG" 
+        data-video-src="photos/IMG_2037.mov" > 
+    </div> -->
+
+    <div id="my-live-photo-target-element" width="1000px" height="600px"
+    
+    ></div>
+
+<script>
+'use strict';
+// Create the player using a pre-existing DOM element.
+const player = LivePhotosKit.createPlayer(document.getElementById('my-live-photo-target-element'));
+player.photoSrc = 'photos/IMG_2037.JPG';
+player.videoSrc = 'photos/IMG_2037.mov';
+// Listen to events the player emits.
+player.addEventListener('canplay', evt => console.log('player ready', evt));
+player.addEventListener('error', evt => console.log('player load error', evt));
+player.addEventListener('ended', evt => console.log('player finished playing through', evt));
+// Use the playback controls.
+player.playbackStyle = LivePhotosKit.PlaybackStyle.HINT;
+player.playbackStyle = LivePhotosKit.PlaybackStyle.FULL;
+player.play();
+player.pause();
+player.toggle();
+player.stop();
+// Seek the animation to one quarter through.
+player.currentTime = 0.25 * player.duration;
+// Seek the animation to 0.1 seconds into the Live Photo.
+player.currentTime = 0.1;
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{
+  "name": "liveframe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch-sass": "sass -w src/sass/:dist/css/",
+    "watch-js": "watchify src/js/main.js -o dist/js/main.js -dv",
+    "watch": "npm run watch-sass & npm run watch-js",
+    "build-js": "browserify src/js/main.js | uglifyjs -mc > dist/js/app.js",
+    "build-sass": "sass sass/main.scss:css/main.css --style compressed",
+    "build": "npm run build-sass & npm run build-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexswider/liveframe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexswider/liveframe/issues"
+  },
+  "homepage": "https://github.com/alexswider/liveframe#readme",
+  "dependencies": {
+    "bell": "^7.9.0",
+    "boom": "^3.1.1",
+    "bootstrap": "^3.3.7",
+    "handlebars": "^4.0.11",
+    "hapi": "^16",
+    "hapi-auth-cookie": "^6.1.1",
+    "hapi-auth-jwt": "^4.0.0",
+    "livephotoskit": "^1.5.2",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "vision": "^4"
+  },
+  "devDependencies": {
+    "const": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^1.0.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-headerfooter": "^1.0.3",
+    "gulp-imagemin": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "inert": "^5.0.1",
+    "node-sass": "^4.7.2",
+    "sass": "^1.0.0-beta.4",
+    "tiny-lr": "^1.0.5",
+    "watchify": "^3.9.0"
+  }
+}
